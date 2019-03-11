@@ -27,6 +27,10 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 
     // Configure migrations
     var migrations = MigrationConfig()
-    migrations.add(model: Todo.self, database: .sqlite)
+    
+    // Add migration for recently created model Items and User
+    migrations.add(model: Items.self, database: .sqlite)
+    migrations.add(model: User.self, database: .sqlite)
+    
     services.register(migrations)
 }
